@@ -38,16 +38,34 @@ This repository demonstrates how to build a zero-license, highly scalable monito
 
 ```text
 israel-pineapple/
-├── app_dashboard.py       # Main interactive Streamlit SCADA dashboard
-├── db_setup.py            # SQLite schema initialization & historical data generator
-├── dashboard_peluches.py   # Standalone Python script for generating Matplotlib PNG reports
-├── dashboard_web.html     # Lightweight HTML5 + Chart.js dashboard
-├── generar_csv.py         # CSV exporter for spreadsheet analysis
-├── dashboard_peluches.png # Sample exported shift summary chart
-├── fabrica_peluches.db    # SQLite database with production line tables and telemetry
-├── peluches.db            # Minimal SQLite database for simple shift tracking
-└── scada_peluches.csv     # Sample generated SCADA CSV dataset
+├── docs/
+│   ├── architecture.md      # Detailed multi-tier SCADA architecture & pipeline specs
+│   ├── user_guide.md        # Step-by-step intern handbook explained with metaphors
+│   ├── contributions.md     # Git workflow, PR conventions, and code standards
+│   ├── swe_intern_guide.tex # Comprehensive LaTeX source for the PDF manual
+│   └── swe_intern_guide.pdf # Compiled 6-page professional engineering handbook
+├── app_dashboard.py         # Main interactive Streamlit SCADA dashboard
+├── db_setup.py              # SQLite schema initialization & historical data generator
+├── dashboard_peluches.py     # Standalone Python script for generating Matplotlib PNG reports
+├── dashboard_web.html       # Lightweight HTML5 + Chart.js dashboard
+├── generar_csv.py           # CSV exporter for spreadsheet analysis
+├── dashboard_peluches.png   # Sample exported shift summary chart
+├── fabrica_peluches.db      # SQLite database with production line tables and telemetry
+├── peluches.db              # Minimal SQLite database for simple shift tracking
+└── scada_peluches.csv       # Sample generated SCADA CSV dataset
 ```
+
+---
+
+## 📚 Documentation & Intern Handbooks
+
+Comprehensive guides are available in the [`docs/`](./docs) directory:
+
+1. 🏛️ **[System Architecture](./docs/architecture.md)**: Hardware layers, PLC telemetry simulation, SQLite ER diagrams, and KPI mathematical formulations.
+2. 🧸 **[Beginner's User Guide ("Balls and Sticks")](./docs/user_guide.md)**: A step-by-step walkthrough explaining every file, button, and SQL query with zero assumptions.
+3. 🤝 **[Contribution Guidelines](./docs/contributions.md)**: Branching models, PEP 8 standards, parameterized SQL practices, and PR checklists.
+4. 📄 **[SWE Intern Handbook (PDF)](./docs/swe_intern_guide.pdf)**: A 6-page printable manual compiled with LaTeX covering end-to-end industrial software engineering concepts.
+
 
 ---
 
