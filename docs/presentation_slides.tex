@@ -1,0 +1,160 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme{Boadilla}
+\usecolortheme{whale}
+
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+% Custom Color Palette
+\definecolor{brandblue}{RGB}{41, 128, 185}
+\definecolor{darknavy}{RGB}{28, 40, 51}
+\definecolor{alertred}{RGB}{231, 76, 60}
+\definecolor{accentgreen}{RGB}{39, 174, 96}
+
+\setbeamercolor{palette primary}{bg=brandblue, fg=white}
+\setbeamercolor{title}{bg=darknavy, fg=white}
+\setbeamercolor{frametitle}{bg=darknavy, fg=white}
+\setbeamercolor{structure}{fg=brandblue}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Slide number format
+\setbeamertemplate{footline}[frame number]
+
+\title[\textbf{SCADA Platform}]{\textbf{Plush Toy Factory SCADA Platform}}
+\subtitle{Real-Time Industrial Telemetry \& Analytics (7$\times$7 Technical Briefing)}
+\author[Pineapple Engineering]{\textbf{Engineering Presentation}}
+\institute[SWE Team]{\textbf{Software Engineering Division}}
+\date{\textbf{10-Minute Technical Walkthrough}}
+
+\begin{document}
+
+% ---------------------------------------------------------
+% SLIDE 1: TITLE
+% ---------------------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 2: THE PROBLEM
+% ---------------------------------------------------------
+\begin{frame}{1. Problem Statement: Industrial Blind Spots}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Manufacturing faces continuous product scrap risk.
+    \item Undetected equipment overheating ruins product batches.
+    \item Traditional manual paper logs cause delays.
+    \item Commercial SCADA software costs thousands annually.
+    \item Real-time digital telemetry is mission-critical.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 3: THE SOLUTION
+% ---------------------------------------------------------
+\begin{frame}{2. The Solution: Zero-License Architecture}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Lightweight open-source industrial telemetry stack.
+    \item Python-driven edge ingestion and simulation engine.
+    \item Embedded SQLite database for rapid persistence.
+    \item Streamlit and Altair interactive browser dashboards.
+    \item Multi-channel reporting via CSV and PNG.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 4: FACTORY FLOOR
+% ---------------------------------------------------------
+\begin{frame}{3. Physical Factory vs. Software Models}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Station 1: Sewing line makes Teddy Bears.
+    \item Station 2: Stuffing line fills Husky Dogs.
+    \item Station 3: Embroidery stitches Giant Pandas.
+    \item Simulated PLCs track hourly operational pulses.
+    \item Normalized relational tables map machine assets.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 5: RELATIONAL DATA
+% ---------------------------------------------------------
+\begin{frame}{4. Relational Data Architecture (SQLite)}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Normalized schema in Third Normal Form.
+    \item Table \texttt{lineas} stores machine asset metadata.
+    \item Table \texttt{produccion\_scada} stores time-series telemetry.
+    \item Foreign key constraints enforce relational integrity.
+    \item Parameterized queries eliminate SQL injection vulnerabilities.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 6: KPIS
+% ---------------------------------------------------------
+\begin{frame}{5. Key Industrial Metrics (KPIs)}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Total throughput: Good completed units produced.
+    \item Scrap rate: Percentage of defective items.
+    \item Dynamic threshold: Over 5 percent warns.
+    \item Tool temperature: Machine head thermal health.
+    \item Real-time delta indicators guide floor supervisors.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 7: WEB DASHBOARD
+% ---------------------------------------------------------
+\begin{frame}{6. Interactive Web Dashboard (Streamlit)}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Dynamic dropdown selects specific factory lines.
+    \item On-demand PLC pulse simulation button.
+    \item Altair dual-series trend line visualization.
+    \item Color-coded machine temperature area chart.
+    \item Raw database inspection table view.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 8: MULTI-CHANNEL REPORTING
+% ---------------------------------------------------------
+\begin{frame}{7. Automated Multi-Channel Reporting}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Headless Matplotlib script generates PNG graphs.
+    \item Instant visual artifacts for shift handovers.
+    \item Automated CSV exporter for financial ERPs.
+    \item Embedded Excel formulas calculate defect rates.
+    \item Lightweight HTML5 and Chart.js client.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 9: SWE PRACTICES
+% ---------------------------------------------------------
+\begin{frame}{8. SWE Best Practices \& Reliability}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item Separation of Concerns across software modules.
+    \item Defensive programming prevents division by zero.
+    \item Idempotent database scripts enable safe resets.
+    \item PEP 8 compliance with type hints.
+    \item Git feature-branch workflow with conventional commits.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------
+% SLIDE 10: CONCLUSION & DEMO
+% ---------------------------------------------------------
+\begin{frame}{9. Conclusion \& Live Demonstration}
+  \begin{itemize}\setlength{\itemsep}{0.8em}
+    \item End-to-end SCADA telemetry operating seamlessly.
+    \item Zero license costs with maximum flexibility.
+    \item Actionable visibility protects production batch quality.
+    \item Architecture easily scales to physical MQTT.
+    \item Ready for interactive live system demonstration.
+  \end{itemize}
+\end{frame}
+
+\end{document}

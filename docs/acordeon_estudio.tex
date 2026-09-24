@@ -1,0 +1,152 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Colores
+\definecolor{navyblue}{RGB}{26, 82, 118}
+\definecolor{darkslate}{RGB}{33, 47, 61}
+\definecolor{boxbg}{RGB}{244, 246, 247}
+\definecolor{alertred}{RGB}{192, 57, 43}
+\definecolor{leafgreen}{RGB}{39, 174, 96}
+
+\tcbuselibrary{skins,breakable}
+
+% Estilo de Cajas
+\newtcolorbox{guionbox}[1]{
+    colback=white,
+    colframe=navyblue,
+    fonttitle=\bfseries\small,
+    title=#1,
+    boxrule=0.8pt,
+    arc=3mm,
+    breakable
+}
+
+\newtcolorbox{trampa}[1]{
+    colback=yellow!10,
+    colframe=alertred,
+    fonttitle=\bfseries\footnotesize,
+    title=#1,
+    boxrule=0.6pt,
+    arc=2mm,
+    breakable
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{darkslate}{\small \textbf{Acordeón de Exposición (10 Min)} \textbar\ SCADA Peluches}}
+\lhead{\textcolor{darkslate}{\small Guía de Supervivencia para Exponer}}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=navyblue,
+    urlcolor=navyblue,
+    pdftitle={Acordeon de Estudio - SCADA Peluches},
+    pdfauthor={EnigmaK9}
+}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{\color{navyblue}ACORDEÓN DE EXPOSICIÓN (10 MINUTOS)}} \\[0.2cm]
+    {\large \textbf{\color{darkslate}Sistema SCADA de Monitoreo Industrial para Fábrica de Peluches}} \\[0.2cm]
+    {\small \textbf{Guía Paso a Paso con Bolitas y Palitos para Estudiar y no Regarla en la Presentación}} \\[0.3cm]
+    \rule{\textwidth}{1pt}
+\end{center}
+
+\vspace{-0.3cm}
+\begin{tcolorbox}[colback=leafgreen!10,colframe=leafgreen,title=\textbf{INSTRUCCIÓN GENERAL: REGLA DE 1 MINUTO POR DIAPOSITIVA}]
+Tienes exactamente \textbf{10 diapositivas} y \textbf{10 minutos}. Cada diapositiva dura exactamente \textbf{60 segundos}. 
+No te apures, habla con voz tranquila, respira y sigue este guion textual. Si te preguntan algo en inglés, aquí tienes las respuestas traducidas al español.
+\end{tcolorbox}
+
+\section*{Diapositiva 1: Portada (Minuto 0:00 -- 1:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``Buenos días a todos. Hoy les voy a presentar la arquitectura y desarrollo de una plataforma SCADA de telemetría industrial en tiempo real para una fábrica de manufactura de peluches. El objetivo de este proyecto de ingeniería de software es capturar datos de máquinas en planta, almacenarlos de forma estructurada en una base de datos relacional y visualizarlos en tableros interactivos para evitar pérdidas económicas y detectar anomalías en la producción.''
+\end{guionbox}
+\textbf{Explicación con bolitas y palitos:} SCADA significa monitorear máquinas a distancia. Les estás diciendo que hiciste un sistema para que el dueño de la fábrica no pierda dinero cuando se descompone una máquina de coser ositos.
+
+\section*{Diapositiva 2: El Problema en la Industria (Minuto 1:00 -- 2:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``En las plantas de producción continua existen puntos ciegos críticos. Si una máquina de coser o rellenar se sobrecalienta, arruina lotes enteros de producto sin que el supervisor se dé cuenta a tiempo. Históricamente, las fábricas registraban piezas en libretas de papel al final del turno, lo que genera retrasos de horas. Además, las licencias de software SCADA comercial como Siemens o Wonderware cuestan miles de dólares al año por máquina.''
+\end{guionbox}
+\begin{trampa}{Pregunta trampa: ¿Por qué no usar papel o un Excel compartido?}
+\textbf{Respuesta:} ``Porque el papel y el Excel manual son reactivos: te enteras del desastre 8 horas después. Con telemetría digital en tiempo real te enteras en el segundo exacto en que la aguja se sobrecalienta.''
+\end{trampa}
+
+\section*{Diapositiva 3: Nuestra Solución (Minuto 2:00 -- 3:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``Para resolver esto, diseñamos una arquitectura ligera y de costo cero de licencias utilizando Python. Construimos un motor que simula pulsos de autómatas programables (PLCs), una base de datos embebida ultra rápida con SQLite, y tableros interactivos modernos en el navegador web usando Streamlit y Altair. Adicionalmente, el sistema genera reportes automáticos en imágenes PNG y archivos CSV para auditorías.''
+\end{guionbox}
+\textbf{Explicación con bolitas y palitos:} En vez de pagar licencias carísimas, usamos Python gratis. Python recibe los datos, los guarda en SQLite y los pinta bonito en una página web.
+
+\section*{Diapositiva 4: La Fábrica Física vs. El Modelo de Software (Minuto 3:00 -- 4:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``El sistema modela tres estaciones de trabajo reales en la fábrica: la Línea 1 de costura que fabrica Osos Teddy Clásicos, la Línea 2 de relleno que produce Perritos Husky, y la Línea 3 de bordado que confecciona Pandas Gigantes. En cada estación, sensores y PLCs registran cada hora tres variables fundamentales: piezas aprobadas, piezas defectuosas o merma, y temperatura del cabezal térmico de la máquina.''
+\end{guionbox}
+\textbf{Explicación con bolitas y palitos:} Hay 3 líneas de producción. Cada línea hace un peluche diferente. Las máquinas miden cuántos salieron bien, cuántos rotos y qué tan caliente está el motor.
+
+\newpage
+
+\section*{Diapositiva 5: Arquitectura de Datos Relacional (SQLite) (Minuto 4:00 -- 5:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``A nivel de persistencia de datos, implementamos una base relacional en Tercera Forma Normal con SQLite. Separamos los catálogos de máquinas en la tabla \texttt{lineas} y las lecturas de telemetría en la tabla \texttt{produccion\_scada}, unidas mediante llaves foráneas. Para garantizar la seguridad del sistema y prevenir inyecciones SQL, todas las consultas desde Python están estrictamente parametrizadas mediante tuplas seguras.''
+\end{guionbox}
+\begin{trampa}{Pregunta trampa: ¿Por qué SQLite y no PostgreSQL o MongoDB?}
+\textbf{Respuesta:} ``Porque para telemetría en el borde industrial (Edge Computing en una Raspberry Pi o PC de planta), SQLite es un archivo único, no requiere servidor, tiene latencia casi cero y es completamente portable sin costo de mantenimiento.''
+\end{trampa}
+
+\section*{Diapositiva 6: Métricas y Fórmulas Industriales (KPIs) (Minuto 5:00 -- 6:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``El núcleo del análisis son los KPIs operativos. Calculamos en tiempo real el throughput o volumen total de piezas buenas, la merma o scrap rate porcentual, y la temperatura promedio. Definimos una regla de negocio dinámica: si el porcentaje de merma supera el 5\%, el sistema cambia automáticamente el semáforo de la línea de estado 'Óptimo' a 'Revisión Requerida' para que el equipo de mantenimiento intervenga inmediatamente.''
+\end{guionbox}
+\textbf{Fórmula que debes tener en la cabeza:} $\text{Scrap } \% = \frac{\text{Defectuosos}}{\text{Buenos} + \text{Defectuosos}} \times 100$. Si da más de 5\%, salta la alerta.
+
+\section*{Diapositiva 7: Tablero Web Interactivo (Streamlit) (Minuto 6:00 -- 7:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``El frontend principal está desarrollado en Streamlit. En la barra lateral, el usuario selecciona qué línea de producción desea inspeccionar mediante un dropdown dinámico. Incorporamos un botón que simula la llegada de un nuevo pulso de PLC en tiempo real, insertando un registro en la base de datos y recalculando instantáneamente las tarjetas métricas y los gráficos interactivos de líneas y áreas generados con Altair.''
+\end{guionbox}
+\textbf{Acción en la demo:} Muestras la pantalla de Streamlit, cambias de línea en el selector y le das clic al botón de 'Simular pulso SCADA'.
+
+\section*{Diapositiva 8: Reportes Automatizados Multicanal (Minuto 7:00 -- 8:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``No todos los usuarios finales usan la misma interfaz. Por ello desarrollamos tres canales de entrega: primero, un script desatendido con Matplotlib que genera gráficas PNG de alta resolución para entrega de turno; segundo, un exportador CSV con fórmulas nativas de porcentaje de defecto para contabilidad y ERPs; y tercero, una vista ligera en HTML puro con Chart.js para pantallas de monitoreo en planta sin entorno Python.''
+\end{guionbox}
+\textbf{Explicación con bolitas y palitos:} Si el gerente quiere una foto en WhatsApp, le mandas el PNG. Si el contador quiere Excel, le mandas el CSV. Si hay una pantalla colgada en la fábrica, abres el HTML.
+
+\section*{Diapositiva 9: Buenas Prácticas de Ingeniería de Software (Minuto 8:00 -- 9:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``Como practicantes de ingeniería de software, cuidamos la calidad del código: aplicamos Separación de Responsabilidades desacoplando la persistencia de la vista, programación defensiva para evitar errores de división entre cero si una máquina inicia en ceros, scripts de inicialización idempotentes que se pueden reiniciar de forma segura, tipado estático según PEP 8, y control de versiones con ramas y commits convencionales.''
+\end{guionbox}
+
+\section*{Diapositiva 10: Conclusión y Demostración en Vivo (Minuto 9:00 -- 10:00)}
+\begin{guionbox}{Qué decir en voz alta (Guion):}
+``En conclusión, este proyecto demuestra cómo con tecnologías abiertas y buenas prácticas de ingeniería de software es posible desplegar una solución SCADA industrial completa, confiable y de costo cero. La plataforma está lista para conectarse a protocolos industriales físicos como MQTT o Modbus. Muchas gracias, procedemos a la demostración interactiva en vivo.''
+\end{guionbox}
+
+\vspace{0.2cm}
+\rule{\textwidth}{0.8pt}
+
+\section*{Glosario Rápido: Términos en Inglés para no Trabarte}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{SCADA:} Control y monitoreo de máquinas industriales.
+    \item \textbf{PLC:} Microcomputadora de fábrica que lee sensores.
+    \item \textbf{Scrap Rate:} Porcentaje de peluches que salieron rotos o chuecos (merma).
+    \item \textbf{Throughput:} Ritmo o cantidad de piezas buenas producidas.
+    \item \textbf{Edge Ingestion:} Guardar los datos en una compu local pegada a la máquina en vez de mandarlos a la nube.
+\end{itemize}
+
+\end{document}
