@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Fábrica de Peluches (SCADA Live)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; }
+    .card { background: white; max-width: 750px; margin: 20px auto; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h2 { margin-top: 0; color: #2c3e50; }
+    .kpi-container { display: flex; gap: 15px; margin-bottom: 20px; }
+    .kpi-box { flex: 1; padding: 15px; border-radius: 8px; text-align: center; color: white; }
+    .bg-blue { background-color: #2980b9; }
+    .bg-red { background-color: #e74c3c; }
+    .kpi-val { font-size: 28px; font-weight: bold; }
+    .kpi-lbl { font-size: 13px; opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🧸 Dashboard de Producción: Fábrica de Peluches</h2>
+    <p style="color: #666;">Datos leídos directo de registros de PLC / Base de Datos local (Cero costo de licencias)</p>
+    
+    <div class="kpi-container">
+      <div class="kpi-box bg-blue">
+        <div class="kpi-val" id="totalBuenos">293</div>
+        <div class="kpi-lbl">Total Peluches Buenos</div>
+      </div>
+      <div class="kpi-box bg-red">
+        <div class="kpi-val" id="totalMalos">18</div>
+        <div class="kpi-lbl">Peluches Defectuosos</div>
+      </div>
+    </div>
+
+    <canvas id="graficaPeluches" height="130"></canvas>
+  </div>
+
+  <script>
+    // Datos equivalentes a un SELECT de Base de Datos
+    const registrosSCADA = [
+      { hora: '08:00', buenos: 50, rotos: 2 },
+      { hora: '09:00', buenos: 55, rotos: 1 },
+      { hora: '10:00', buenos: 40, rotos: 5 },
+      { hora: '11:00', buenos: 60, rotos: 0 },
+      { hora: '12:00', buenos: 30, rotos: 8 }, // ¡Alerta a las 12!
+      { hora: '13:00', buenos: 58, rotos: 2 }
+    ];
+
+    const ctx = document.getElementById('graficaPeluches').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: registrosSCADA.map(r => r.hora),
+        datasets: [
+          {
+            label: 'Peluches Producidos (Buenos)',
+            data: registrosSCADA.map(r => r.buenos),
+            borderColor: '#2980b9',
+            backgroundColor: 'rgba(41, 128, 185, 0.1)',
+            fill: true,
+            tension: 0.3
+          },
+          {
+            label: 'Defectuosos (Fallas de Costura)',
+            data: registrosSCADA.map(r => r.rotos),
+            borderColor: '#e74c3c',
+            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+            borderDash: [5, 5],
+            fill: true,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
